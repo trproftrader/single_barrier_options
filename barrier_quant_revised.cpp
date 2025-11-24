@@ -59,7 +59,7 @@ void downoutputprice(int n,const double& Barrier, const double& S, const double&
      H=-(floor(log(Barrier/S)/log(d))+1);
   for (j=0; j <= n ; j++){
       mpz_bin_uiui(binomial,n,j);
-      if(j-H<=n){
+      if(H<=j){
           mpz_bin_uiui(binomial2,n,j-H);
           if(mpz_cmp(binomial,binomial2)>0){
               mpz_sub(binomial,binomial,binomial2);
@@ -120,7 +120,7 @@ void downoutcallprice(int n,const double& Barrier, const double& S, const double
 
   for (j=0; j <= n ; j++){
       mpz_bin_uiui(binomial,n,j);
-      if(j-H<=n){
+      if(H<=j){
           mpz_bin_uiui(binomial2,n,j-H);
           if(mpz_cmp(binomial,binomial2)>0){
               mpz_sub(binomial,binomial,binomial2);
